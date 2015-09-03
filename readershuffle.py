@@ -9,4 +9,4 @@ arqs = glob.glob(path+'*')
 pics = ramautil.endless_shuffle(arqs)
 
 for node, pic in zip(nuke.selectedNodes('Read'), pics):
-    print node['file'].setValue(pic)
+    node['file'].setValue(pic)
