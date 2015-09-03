@@ -1,12 +1,12 @@
 import nuke
 import glob
+import ramautil
 
 path = '/Users/gui/Dropbox/0000_ELIS/Figurantes/'
 
 arqs = glob.glob(path+'*')
 
-for node in nuke.selectedNodes():
-    if node.Class() != 'Read':
-        continue
-    print node['file'].value()
+pics = ramautil.endless_shuffle(arqs)
 
+for node, pic in zip(nuke.selectedNodes('Read'), pics):
+    node['file'].setValue(pic)
